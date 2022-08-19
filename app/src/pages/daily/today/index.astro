@@ -1,0 +1,9 @@
+---
+import { DateTime } from "luxon";
+import DailyLayout from '@layouts/DailyLayout.astro';
+const today = DateTime.now().toFormat("dd-MM-yy")
+const {Content} = await import(`../../../markdown/daily/${today}.md`)
+const imageName = (await import(`../../../markdown/daily/${today}.md`)).frontmatter.imageName
+---
+
+<DailyLayout imgName={imageName}><Content/></DailyLayout>
