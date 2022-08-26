@@ -1,0 +1,23 @@
+---
+import PrayerLayout from "@layouts/PrayerLayout.astro";
+
+export async function getStaticPaths() {
+  const prayers= await Astro.glob('../../../markdown/prayers/*.md')
+  console.log(prayers[0].frontmatter)
+  return prayers.map(prayer => ({
+    params: { 
+        category: prayer.frontmatter.category,
+        prayer: prayer.frontmatter.name
+      },
+    props: {
+      prayer
+    },
+  }))
+}
+
+const { Content } = Astro.props.prayer
+---
+
+<PrayerLayout>
+  <Content/>
+</PrayerLayout>

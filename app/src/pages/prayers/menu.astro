@@ -1,7 +1,22 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
+import MenuLayout from "@layouts/MenuLayout.astro";
+import {Accordion} from '@components/Accordion'
+
+const prayers = await Astro.glob('/src/markdown/prayers/*.md')
+
+const dict:{ [index: string]: string[]  } = {}
+
+prayers.forEach(item => {
+    const category = item.frontmatter.category
+    if(!dict.hasOwnProperty(category)){
+        dict[category] = []
+    }
+    dict[category].push(item.frontmatter.name)
+});
 ---
 
-<BaseLayout>
-    <h1>Prayer menu</h1>
-</BaseLayout>
+<MenuLayout>
+<div class="flex justify-center items-center h-2/3 w-2/3">
+<Accordion content={dict} client:visible />
+</div>
+</MenuLayout>
