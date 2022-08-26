@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Transition } from "@headlessui/react";
+import CrossLogoRef from "@assets/cross.svg"
 
 
 
 export default function NavBar() {
 
-const pageNames = [{name :"Päevane lugemine", url: "/daily/today"}, {name:"Palved", url: "/prayers/menu"}, {name:"Info ja kontakt", url: "/info"}]
+const pageNames = [{name :"Avaleht", url: "/"},{name :"Päevane lugemine", url: "/daily/today"}, {name:"Palved", url: "/prayers/menu"}, {name:"Info ja kontakt", url: "/info"}]
 const displayedNames = pageNames.map((obj) =>
 <a
 key={obj.name}
@@ -33,11 +34,13 @@ const displayedNamesMobile = pageNames.map((obj) => (
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
+                <a href="/">
                 <img
                   className="h-8 w-8"
-                  src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                  src={CrossLogoRef}
                   alt="Workflow"
                 />
+              </a>
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">

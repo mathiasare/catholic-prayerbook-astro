@@ -1,8 +1,26 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import ArticleCard from "@components/ArticleCard"
+
+const sample = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
+obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
+nihil, eveniet aliquid culpa officia aut!`
 ---
 
 <BaseLayout>
-  <h1>Welcome to my website!</h1>
+  <div class="flex flex-col h-full w-full items-center">
+      <div class="h-auto md:w-2/3 w:auto mt-10 mb-20">
+          <h1 class="text-2xl sm:text-3xl md:text-4xl text-start">Katoliiklaste palveraamatu leht.</h1>
+      </div>
+      <div class="w-full h-full flex-col items-center md:grid md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 px-10 md:pl-20 md:px-0">
+          <ArticleCard heading="Päevased lugemised" content={sample} imagePath="/src/assets/images/daily/example.jpg"/>
+          <ArticleCard heading="Päevased lugemised" content={sample} imagePath="/src/assets/images/daily/example.jpg"/>
+          <ArticleCard heading="Päevased lugemised" content={sample} imagePath="/src/assets/images/daily/example.jpg"/>
+          <ArticleCard heading="Päevased lugemised" content={sample} imagePath="/src/assets/images/daily/example.jpg"/>
+      </div>
+  </div>
 </BaseLayout>
   
