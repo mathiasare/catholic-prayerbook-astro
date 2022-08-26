@@ -1,0 +1,19 @@
+---
+export async function getStaticPaths() {
+  const posts = await Astro.glob('../../../markdown/prayers/*.md')
+
+  return posts.map(prayer => ({
+    params: { 
+      prayer: prayer.file
+    },
+    props: {
+      prayer
+    },
+  }))
+}
+
+const { Content } = Astro.props.prayer
+---
+<article>
+  <Content/>
+</article>

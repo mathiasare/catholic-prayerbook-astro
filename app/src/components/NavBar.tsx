@@ -5,7 +5,7 @@ import { Transition } from "@headlessui/react";
 
 export default function NavBar() {
 
-const pageNames = [{name :"Päevane lugemine", url: "#"}, {name:"Palved", url: "#"}, {name:"Info ja kontakt", url: "#"}]
+const pageNames = [{name :"Päevane lugemine", url: "/daily/today"}, {name:"Palved", url: "/prayers/menu"}, {name:"Info ja kontakt", url: "/info"}]
 const displayedNames = pageNames.map((obj) =>
 <a
 key={obj.name}

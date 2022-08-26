@@ -1,18 +1,17 @@
 ---
-import { DateTime } from "luxon";
-const today = DateTime.now().toFormat("dd-MM-yy")
+import NavBar from "@components/NavBar";
 ---
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-        <meta http-equiv="refresh" content={ `0; url=${today}` } />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Home</title>
 	</head>
 	<body class="bg-slate-200 h-screen">
-    <h1>Loading..</h1>
+		<NavBar client:load/>
+		<slot />
 	</body>
 </html>
