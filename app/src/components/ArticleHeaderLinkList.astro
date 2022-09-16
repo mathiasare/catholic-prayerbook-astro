@@ -1,0 +1,12 @@
+---
+import { propTypesContainerProps } from "@material-tailwind/react/types/components/checkbox";
+
+const articles = await Astro.glob('/src/markdown/prayers/**/*.md')
+---
+<ul>
+    {articles
+    .filter((article:any) => article.frontmatter.front_page)
+    .map((article:any) => { 
+        const path = `/prayers/${article.frontmatter.category}/${article.frontmatter.name}`
+        return <a href={path}><li>{article.frontmatter.name}</li></a> })}
+</ul>

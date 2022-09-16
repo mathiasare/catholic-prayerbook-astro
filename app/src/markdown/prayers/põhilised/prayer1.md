@@ -1,6 +1,7 @@
 ---
 category: category 1
 name: prayer 1
+front_page: true
 ---
 
 # Prayer 1 cat 1

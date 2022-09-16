@@ -2,11 +2,19 @@
 import PrayerLayout from "@layouts/PrayerLayout.astro";
 
 export async function getStaticPaths() {
-  const prayers= await Astro.glob('../../../markdown/prayers/*.md')
-  console.log(prayers[0].frontmatter)
+  const prayers= await Astro.glob('../../../markdown/prayers/**/*.md')
+  const DEFAULT_CATEGORY:string = "kategoriseerimata"
+
+  function getCategory(path:string) {
+    path = path.substring(0,path.lastIndexOf("/"))
+    const newPath = path.substring(path.lastIndexOf("/")+1)
+
+    return newPath === "prayers"? DEFAULT_CATEGORY : newPath
+}
+
   return prayers.map(prayer => ({
     params: { 
-        category: prayer.frontmatter.category,
+        category: getCategory(prayer.file),
         prayer: prayer.frontmatter.name
       },
     props: {

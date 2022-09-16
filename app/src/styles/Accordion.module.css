@@ -2,6 +2,10 @@
     @apply w-full;
     min-height: 120px; 
    }
+
+   .Title {
+     @apply text-3xl
+   }
    
    .Item {
      @apply relative py-3 border-b border-gray-300;
@@ -24,7 +28,7 @@
    }
    
    .Trigger span {
-     @apply text-lg font-bold;
+     @apply text-lg font-semibold;
    }
    
    .Content {

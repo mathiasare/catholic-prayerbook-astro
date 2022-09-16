@@ -33,6 +33,11 @@ export const Accordion: React.FC<AccordionProps> = (props) => {
     return (
         <>
         <Root type="multiple" className={s.Container}>
+          <Item>
+            <Header className={s.Title}>
+                Pealkiri
+            </Header>
+          </Item>
           {menuItems}
         </Root>
       </>

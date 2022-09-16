@@ -7,11 +7,12 @@ import NavBar from "@components/NavBar";
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="stylesheet" href="/src/styles/BaseStyles.css">
 		<meta name="generator" content={Astro.generator} />
 		<title>Home</title>
 	</head>
 	<body class="bg-slate-200 h-screen">
-		<NavBar client:load/>
+		<NavBar client:load />
 		<slot />
 	</body>
 </html>

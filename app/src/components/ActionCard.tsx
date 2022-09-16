@@ -6,13 +6,13 @@ import {
     Typography,
   } from "@material-tailwind/react";
 
-  interface ArticleCardProps{
+  interface ActionCardProps{
     heading:string,
     content:string
     imagePath:string | undefined
   }
    
-  export default function ArticleCard(props:ArticleCardProps) {
+  export default function ActionCard(props:ActionCardProps) {
     let imageHeader = null;
 
     if(props.imagePath !== null || props.imagePath !== ""){
@@ -41,7 +41,7 @@ import {
             <Typography variant="h5" className="mb-2">
               {props.heading}
             </Typography>
-            <Typography>
+            <Typography variant="paragraph" className="text-left">
               {props.content}
             </Typography>
           </CardBody>

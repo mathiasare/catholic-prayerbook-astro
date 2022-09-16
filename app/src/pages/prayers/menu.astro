@@ -1,13 +1,23 @@
 ---
 import MenuLayout from "@layouts/MenuLayout.astro";
 import {Accordion} from '@components/Accordion'
+import type { MarkdownInstance } from "astro";
 
-const prayers = await Astro.glob('/src/markdown/prayers/*.md')
+const prayers = await Astro.glob('/src/markdown/prayers/**/*.md')
+
+const DEFAULT_CATEGORY:string = "kategoriseerimata"
 
 const dict:{ [index: string]: string[]  } = {}
 
+function getCategory(path:string) {
+    path = path.substring(0,path.lastIndexOf("/"))
+    const newPath = path.substring(path.lastIndexOf("/")+1)
+
+    return newPath === "prayers"? DEFAULT_CATEGORY : newPath
+}
+
 prayers.forEach(item => {
-    const category = item.frontmatter.category
+    const category = getCategory(item.file)
     if(!dict.hasOwnProperty(category)){
         dict[category] = []
     }
@@ -16,7 +26,7 @@ prayers.forEach(item => {
 ---
 
 <MenuLayout>
-<div class="flex justify-center items-center h-2/3 w-2/3">
+<div class="flex justify-center items-center h-auto w-2/3 ">
 <Accordion content={dict} client:visible />
 </div>
 </MenuLayout>

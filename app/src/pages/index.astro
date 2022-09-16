@@ -1,6 +1,8 @@
 ---
+import ArticleHeaderLinkList from "@components/ArticleHeaderLinkList.astro";
+import ArticleText from "@components/ArticleText.astro";
+import ArticleCardLayout from "@layouts/ArticleCardLayout.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import ArticleCard from "@components/ArticleCard"
 
 const sample = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
 molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
@@ -11,16 +13,13 @@ nihil, eveniet aliquid culpa officia aut!`
 ---
 
 <BaseLayout>
-  <div class="flex flex-col h-full w-full items-center">
-      <div class="h-auto md:w-2/3 w:auto mt-10 mb-20">
-          <h1 class="text-2xl sm:text-3xl md:text-4xl text-start">Katoliiklaste palveraamatu leht.</h1>
-      </div>
-      <div class="w-full h-full flex-col items-center md:grid md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 px-10 md:pl-20 md:px-0">
-          <ArticleCard heading="Päevased lugemised" content={sample} imagePath="/src/assets/images/daily/example.jpg"/>
-          <ArticleCard heading="Päevased lugemised" content={sample} imagePath="/src/assets/images/daily/example.jpg"/>
-          <ArticleCard heading="Päevased lugemised" content={sample} imagePath="/src/assets/images/daily/example.jpg"/>
-          <ArticleCard heading="Päevased lugemised" content={sample} imagePath="/src/assets/images/daily/example.jpg"/>
-      </div>
+  <div class="flex flex-col h-full w-full items-center md:space-y-10 space-y-3">
+      <ArticleCardLayout heading="Katoliiklaste palveraamat">
+        <ArticleText content = "Siit lehelt leiad põhilisemad palved Katoliku Kiriku traditsioonist, mida kasutatakse Missal, roosipärga lugedes, või isekeskis palvetades." />
+      </ArticleCardLayout>
+      <ArticleCardLayout heading="Palved">
+          <ArticleHeaderLinkList/>
+      </ArticleCardLayout>      
   </div>
 </BaseLayout>
   
